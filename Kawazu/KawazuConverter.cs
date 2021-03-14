@@ -15,9 +15,9 @@ namespace Kawazu
     {
         private readonly MeCabIpaDicTagger _tagger;
 
-        public KawazuConverter()
+        public KawazuConverter(string dicdir)
         {
-            _tagger = MeCabIpaDicTagger.Create();
+            _tagger = MeCabIpaDicTagger.Create(dicdir);
         }
 
         protected virtual void Dispose(bool disposing)
