@@ -43,6 +43,8 @@ namespace Kawazu
 
         public string RomaReading => Utilities.ToRawRomaji(HiraReading);
 
+        public string RomaReadingSeparated => Utilities.ToRawRomaji(HiraReading, RomajiSystem.Hepburn, true);
+
         public readonly bool IsEndsInTsu;
 
         public Division(MeCabIpaDicNode node, TextType type, RomajiSystem system = RomajiSystem.Hepburn)

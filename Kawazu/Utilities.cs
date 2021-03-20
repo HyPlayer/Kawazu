@@ -103,7 +103,7 @@ namespace Kawazu
         /// <param name="str"></param>
         /// <param name="system"></param>
         /// <returns>The romaji form string</returns>
-        public static string ToRawRomaji(string str, RomajiSystem system = RomajiSystem.Hepburn)
+        public static string ToRawRomaji(string str, RomajiSystem system = RomajiSystem.Hepburn, bool separated = false)
         {
             var nippon = new Dictionary<string, string>
             {
@@ -1372,6 +1372,7 @@ namespace Kawazu
                     builder.Append(ch);
                     pnt += 1;
                 }
+                if (separated) builder.Append(" ");
             }
 
             var result = regTsu.Replace(builder.ToString(), "$2$2"); // Double the sokuon

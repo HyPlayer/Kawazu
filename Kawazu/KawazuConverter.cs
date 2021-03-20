@@ -137,6 +137,26 @@ namespace Kawazu
                                     builder.Append(division.RomaReading).Append(" ");
                                 }
                                 break;
+                            case Mode.Separated:
+                                foreach (var division in text)
+                                {
+
+                                    if (division.IsEndsInTsu)
+                                    {
+                                        isPreviousEndsInTsu = true;
+                                        division.RemoveAt(division.Count - 1);
+                                        builder.Append(division.RomaReadingSeparated);
+                                        continue;
+                                    }
+
+                                    if (isPreviousEndsInTsu)
+                                    {
+                                        builder.Append(division.RomaReadingSeparated.First());
+                                        isPreviousEndsInTsu = false;
+                                    }
+                                    builder.Append(division.RomaReadingSeparated);
+                                }
+                                break;
                             case Mode.Okurigana:
                                 foreach (var ele in text.SelectMany(division => division))
                                 {
@@ -310,7 +330,8 @@ namespace Kawazu
         Normal,
         Spaced,
         Okurigana,
-        Furigana
+        Furigana,
+        Separated
     }
 
     /// <summary>
