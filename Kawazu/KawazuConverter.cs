@@ -15,6 +15,11 @@ namespace Kawazu
     {
         private readonly MeCabIpaDicTagger _tagger;
 
+        public KawazuConverter()
+        {
+            _tagger = MeCabIpaDicTagger.Create();
+        }
+        
         public KawazuConverter(string dicdir)
         {
             _tagger = MeCabIpaDicTagger.Create(dicdir);

@@ -12,7 +12,7 @@ namespace Kawazu
     {
         private const int KatakanaHiraganaShift = -96;
         private const int HiraganaKatakanaShift = 96;
-        
+
         /// <summary>
         /// Check if the given char is hiragana.
         /// </summary>
@@ -27,14 +27,14 @@ namespace Kawazu
         /// Check if the given char is kana.
         /// </summary>
         public static bool IsKana(char ch) => IsHiragana(ch) || IsKatakana(ch);
-        
+
         /// <summary>
         /// Check if the given char is kanji.
         /// </summary>
         public static bool IsKanji(char ch) => (ch >= '\u4e00' && ch <= '\u9fcf') ||
                                                (ch >= '\uf900' && ch <= '\ufaff') ||
                                                (ch >= '\u3400' && ch <= '\u4dbf');
-        
+
         /// <summary>
         /// Check if the given char is Japanese character.
         /// </summary>
@@ -44,22 +44,22 @@ namespace Kawazu
         /// Check if the given string has hiragana.
         /// </summary>
         public static bool HasHiragana(string str) => str.Any(IsHiragana);
-        
+
         /// <summary>
         /// Check if the given string has katakana.
         /// </summary>
         public static bool HasKatakana(string str) => str.Any(IsKatakana);
-        
+
         /// <summary>
         /// Check if the given string has kana.
         /// </summary>
         public static bool HasKana(string str) => str.Any(IsKana);
-        
+
         /// <summary>
         /// Check if the given string has kanji.
         /// </summary>
         public static bool HasKanji(string str) => str.Any(IsKanji);
-        
+
         /// <summary>
         /// Check if the given string has Japanese character.
         /// </summary>
@@ -75,7 +75,7 @@ namespace Kawazu
             var strBuilder = new StringBuilder();
             foreach (var ch in str)
             {
-                strBuilder.Append((ch > '\u30a0' && ch < '\u30f7') ? (char)(ch + KatakanaHiraganaShift) : ch);
+                strBuilder.Append((ch > '\u30a0' && ch < '\u30f7') ? (char) (ch + KatakanaHiraganaShift) : ch);
             }
 
             return strBuilder.ToString();
@@ -91,7 +91,7 @@ namespace Kawazu
             var strBuilder = new StringBuilder();
             foreach (var ch in str)
             {
-                strBuilder.Append((ch > '\u3040' && ch < '\u3097') ? (char)(ch + HiraganaKatakanaShift) : ch);
+                strBuilder.Append((ch > '\u3040' && ch < '\u3097') ? (char) (ch + HiraganaKatakanaShift) : ch);
             }
 
             return strBuilder.ToString();
@@ -125,7 +125,7 @@ namespace Kawazu
                 {"＄", "$"},
                 {"％", "%"},
                 {"＆", "&"},
-                {"’", "\""},
+                //{"’", "\""}, //其实这个不影响阅读 , 在英文环境下会错误转换
                 {"（", "("},
                 {"）", ")"},
                 {"＝", "="},
@@ -523,7 +523,7 @@ namespace Kawazu
                 {"＄", "$"},
                 {"％", "%"},
                 {"＆", "&"},
-                {"’", "\""},
+                //{"’", "\""}, //其实这个不影响阅读 , 在英文环境下会错误转换
                 {"（", "("},
                 {"）", ")"},
                 {"＝", "="},
@@ -561,7 +561,7 @@ namespace Kawazu
                 {"ウ", "u"},
                 {"エ", "e"},
                 {"オ", "o"},
-                
+
                 {"か", "ka"},
                 {"き", "ki"},
                 {"く", "ku"},
@@ -711,7 +711,7 @@ namespace Kawazu
                 {"プ", "pu"},
                 {"ペ", "pe"},
                 {"ポ", "po"},
-                
+
                 // 拗音-清音(キャ～リョ)
                 {"きゃ", "kya"},
                 {"きゅ", "kyu"},
@@ -755,7 +755,7 @@ namespace Kawazu
                 {"リャ", "rya"},
                 {"リュ", "ryu"},
                 {"リョ", "ryo"},
-                
+
                 // 拗音-濁音(ギャ～ビョ)、半濁音(ピャ～ピョ)、合拗音(クヮ、グヮ)
                 {"ぎゃ", "gya"},
                 {"ぎゅ", "gyu"},
@@ -791,7 +791,7 @@ namespace Kawazu
                 {"ピョ", "pyo"},
                 // クヮ: "",
                 // グヮ: "",
-                
+
                 // 小書きの仮名、符号
                 {"ぁ", "a"},
                 {"ぃ", "i"},
@@ -817,7 +817,7 @@ namespace Kawazu
                 {"ン", "n"},
                 // ー: "",
                 {"　", " "},
-                
+
                 // 外来音(イェ～グォ)
                 // いぇ: "",
                 // うぃ: "",
@@ -921,7 +921,7 @@ namespace Kawazu
                 {"＄", "$"},
                 {"％", "%"},
                 {"＆", "&"},
-                {"’", "\""},
+                //{"’", "\""}, //其实这个不影响阅读 , 在英文环境下会错误转换
                 {"（", "("},
                 {"）", ")"},
                 {"＝", "="},
@@ -959,7 +959,7 @@ namespace Kawazu
                 {"ウ", "u"},
                 {"エ", "e"},
                 {"オ", "o"},
-                
+
                 {"か", "ka"},
                 {"き", "ki"},
                 {"く", "ku"},
@@ -1109,7 +1109,7 @@ namespace Kawazu
                 {"プ", "pu"},
                 {"ペ", "pe"},
                 {"ポ", "po"},
-                
+
                 // 拗音-清音(キャ～リョ)
                 {"きゃ", "kya"},
                 {"きゅ", "kyu"},
@@ -1153,7 +1153,7 @@ namespace Kawazu
                 {"リャ", "rya"},
                 {"リュ", "ryu"},
                 {"リョ", "ryo"},
-                
+
                 // 拗音-濁音(ギャ～ビョ)、半濁音(ピャ～ピョ)、合拗音(クヮ、グヮ)
                 {"ぎゃ", "gya"},
                 {"ぎゅ", "gyu"},
@@ -1189,7 +1189,7 @@ namespace Kawazu
                 {"ピョ", "pyo"},
                 // クヮ: "",
                 // グヮ: "",
-                
+
                 // 小書きの仮名、符号
                 {"ぁ", "a"},
                 {"ぃ", "i"},
@@ -1215,7 +1215,7 @@ namespace Kawazu
                 {"ン", "n"},
                 // ー: "",
                 {"　", " "},
-                
+
                 // 外来音(イェ～グォ)
                 {"いぇ", "ye"},
                 {"うぃ", "wi"},
@@ -1299,17 +1299,17 @@ namespace Kawazu
                 {"フュ", "fyu"},
                 {"フョ", "fyo"}
             };
-            
+
             var romajiSystem = new Dictionary<RomajiSystem, Dictionary<string, string>>()
             {
                 {RomajiSystem.Hepburn, hepburn},
                 {RomajiSystem.Nippon, nippon},
                 {RomajiSystem.Passport, passport}
             };
-            
+
             var regTsu = new Regex(@"(っ|ッ)([bcdfghijklmnopqrstuvwyz])", RegexOptions.Multiline); // Double the sokuon
             var regXtsu = new Regex(@"っ|ッ", RegexOptions.Multiline);
-            
+
             var pnt = 0;
             var builder = new StringBuilder();
 
@@ -1323,24 +1323,30 @@ namespace Kawazu
                 case RomajiSystem.Nippon:
                 case RomajiSystem.Hepburn:
                 {
-                    var regHatu = new Regex(@"(ん|ン)(?=あ|い|う|え|お|ア|イ|ウ|エ|オ|ぁ|ぃ|ぅ|ぇ|ぉ|ァ|ィ|ゥ|ェ|ォ|や|ゆ|よ|ヤ|ユ|ヨ|ゃ|ゅ|ょ|ャ|ュ|ョ)", RegexOptions.Multiline);
+                    var regHatu = new Regex(@"(ん|ン)(?=あ|い|う|え|お|ア|イ|ウ|エ|オ|ぁ|ぃ|ぅ|ぇ|ぉ|ァ|ィ|ゥ|ェ|ォ|や|ゆ|よ|ヤ|ユ|ヨ|ゃ|ゅ|ょ|ャ|ュ|ョ)",
+                        RegexOptions.Multiline);
                     var matches = regHatu.Matches(str);
                     var indices = new List<int>();
                     foreach (Match item in matches)
                     {
                         indices.Add(item.Index);
                     }
-                    if (indices.Count != 0) {
+
+                    if (indices.Count != 0)
+                    {
                         var mStr = "";
                         for (var i = 0; i < indices.Count; i++)
                         {
-                            if (i == 0) {
+                            if (i == 0)
+                            {
                                 mStr += $"{str.Substring(0, indices[i])}'";
                             }
-                            else {
+                            else
+                            {
                                 mStr += $"{str.Substring(indices[i - 1], indices[i] - indices[i - 1])}'";
                             }
                         }
+
                         mStr += str.Substring(indices[indices.Count - 1]);
                         str = mStr;
                     }
@@ -1351,20 +1357,31 @@ namespace Kawazu
 
             // [ALL] kana to roman chars
             var max = str.Length;
+            bool seperatedd = false;
             while (pnt < max)
             {
                 string r;
-                if (pnt != max -1 && romajiSystem[system].ContainsKey(str.Substring(pnt, 2)))
+                if (pnt != max - 1 && romajiSystem[system].ContainsKey(str.Substring(pnt, 2)))
                 {
                     r = romajiSystem[system][str.Substring(pnt, 2)];
                     builder.Append(r);
                     pnt += 2;
+                    if (separated)
+                    {
+                        builder.Append(" ");
+                        seperatedd = true;
+                    }
                 }
                 else if (romajiSystem[system].ContainsKey(str.Substring(pnt, 1)))
                 {
                     r = romajiSystem[system][str.Substring(pnt, 1)];
                     builder.Append(r);
                     pnt += 1;
+                    if (separated)
+                    {
+                        builder.Append(" ");
+                        seperatedd = true;
+                    }
                 }
                 else
                 {
@@ -1372,36 +1389,44 @@ namespace Kawazu
                     builder.Append(ch);
                     pnt += 1;
                 }
-                if (separated) builder.Append(" ");
             }
-
-            var result = regTsu.Replace(builder.ToString(), "$2$2"); // Double the sokuon
             
+            if (separated && !seperatedd)
+            {
+                builder.Append(" ");
+                seperatedd = true;
+            }
+            var result = regTsu.Replace(builder.ToString(), "$2$2"); // Double the sokuon
+
             // [PASSPORT|HEPBURN] 子音を重ねて特殊表記
-            if (system == RomajiSystem.Passport || system == RomajiSystem.Hepburn) {
+            if (system == RomajiSystem.Passport || system == RomajiSystem.Hepburn)
+            {
                 result = result.Replace("cc", "tc");
             }
 
             result = regXtsu.Replace(result, "tsu");
 
             // [PASSPORT|HEPBURN] 撥音の特殊表記 b、m、p
-            if (system == RomajiSystem.Passport || system == RomajiSystem.Hepburn) {
+            if (system == RomajiSystem.Passport || system == RomajiSystem.Hepburn)
+            {
                 result = result.Replace("nm", "mm");
                 result = result.Replace("nb", "mb");
                 result = result.Replace("np", "mp");
             }
 
             // [NIPPON] 長音変換
-            if (system == RomajiSystem.Nippon) {
+            if (system == RomajiSystem.Nippon)
+            {
                 result = result.Replace("aー", "â");
                 result = result.Replace("iー", "î");
                 result = result.Replace("uー", "û");
                 result = result.Replace("eー", "ê");
                 result = result.Replace("oー", "ô");
             }
-            
+
             // [HEPBURN] 長音変換
-            if (system == RomajiSystem.Hepburn) {
+            if (system == RomajiSystem.Hepburn)
+            {
                 result = result.Replace("aー", "ā");
                 result = result.Replace("iー", "ī");
                 result = result.Replace("uー", "ū");
@@ -1425,7 +1450,7 @@ namespace Kawazu
                 {
                     hasKanji = true;
                 }
-                
+
                 else if (IsKana(ch))
                 {
                     hasKana = true;

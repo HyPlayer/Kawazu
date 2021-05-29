@@ -40,7 +40,7 @@ namespace Kawazu
                     _ => To.Hiragana
                 };
                 
-                Console.WriteLine("Presentation mode ('1':Normal '2':Spaced '3':Okurigana '4':Furigana Default:Okurigana):");
+                Console.WriteLine("Presentation mode ('1':Normal '2':Spaced '3':Okurigana '4':Furigana '5':Separated Default:Okurigana):");
                 Console.Write("> ");
                 var modeStr = Console.ReadLine();
                 var mode = modeStr switch
@@ -49,6 +49,7 @@ namespace Kawazu
                     "2" => Mode.Spaced,
                     "3" => Mode.Okurigana,
                     "4" => Mode.Furigana,
+                    "5" => Mode.Separated,
                     _ => Mode.Okurigana
                 };
 
