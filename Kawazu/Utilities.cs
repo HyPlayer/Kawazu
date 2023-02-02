@@ -75,7 +75,7 @@ namespace Kawazu
             var strBuilder = new StringBuilder();
             foreach (var ch in str)
             {
-                strBuilder.Append((ch > '\u30a0' && ch < '\u30f7') ? (char) (ch + KatakanaHiraganaShift) : ch);
+                strBuilder.Append((ch > '\u30a0' && ch < '\u30f7') ? (char)(ch + KatakanaHiraganaShift) : ch);
             }
 
             return strBuilder.ToString();
@@ -91,7 +91,7 @@ namespace Kawazu
             var strBuilder = new StringBuilder();
             foreach (var ch in str)
             {
-                strBuilder.Append((ch > '\u3040' && ch < '\u3097') ? (char) (ch + HiraganaKatakanaShift) : ch);
+                strBuilder.Append((ch > '\u3040' && ch < '\u3097') ? (char)(ch + HiraganaKatakanaShift) : ch);
             }
 
             return strBuilder.ToString();
@@ -1322,37 +1322,37 @@ namespace Kawazu
                 // [NIPPON|HEPBURN] 撥音の特殊表記 a、i、u、e、o、y
                 case RomajiSystem.Nippon:
                 case RomajiSystem.Hepburn:
-                {
-                    var regHatu = new Regex(@"(ん|ン)(?=あ|い|う|え|お|ア|イ|ウ|エ|オ|ぁ|ぃ|ぅ|ぇ|ぉ|ァ|ィ|ゥ|ェ|ォ|や|ゆ|よ|ヤ|ユ|ヨ|ゃ|ゅ|ょ|ャ|ュ|ョ)",
-                        RegexOptions.Multiline);
-                    var matches = regHatu.Matches(str);
-                    var indices = new List<int>();
-                    foreach (Match item in matches)
                     {
-                        indices.Add(item.Index);
-                    }
-
-                    if (indices.Count != 0)
-                    {
-                        var mStr = "";
-                        for (var i = 0; i < indices.Count; i++)
+                        var regHatu = new Regex(@"(ん|ン)(?=あ|い|う|え|お|ア|イ|ウ|エ|オ|ぁ|ぃ|ぅ|ぇ|ぉ|ァ|ィ|ゥ|ェ|ォ|や|ゆ|よ|ヤ|ユ|ヨ|ゃ|ゅ|ょ|ャ|ュ|ョ)",
+                            RegexOptions.Multiline);
+                        var matches = regHatu.Matches(str);
+                        var indices = new List<int>();
+                        foreach (Match item in matches)
                         {
-                            if (i == 0)
-                            {
-                                mStr += $"{str.Substring(0, indices[i])}'";
-                            }
-                            else
-                            {
-                                mStr += $"{str.Substring(indices[i - 1], indices[i] - indices[i - 1])}'";
-                            }
+                            indices.Add(item.Index);
                         }
 
-                        mStr += str.Substring(indices[indices.Count - 1]);
-                        str = mStr;
-                    }
+                        if (indices.Count != 0)
+                        {
+                            var mStr = "";
+                            for (var i = 0; i < indices.Count; i++)
+                            {
+                                if (i == 0)
+                                {
+                                    mStr += $"{str.Substring(0, indices[i])}'";
+                                }
+                                else
+                                {
+                                    mStr += $"{str.Substring(indices[i - 1], indices[i] - indices[i - 1])}'";
+                                }
+                            }
 
-                    break;
-                }
+                            mStr += str.Substring(indices[indices.Count - 1]);
+                            str = mStr;
+                        }
+
+                        break;
+                    }
             }
 
             // [ALL] kana to roman chars
@@ -1390,7 +1390,7 @@ namespace Kawazu
                     pnt += 1;
                 }
             }
-            
+
             if (separated && !seperatedd)
             {
                 builder.Append(" ");

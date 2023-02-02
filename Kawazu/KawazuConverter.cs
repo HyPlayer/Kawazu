@@ -1,17 +1,17 @@
-﻿using System;
+﻿using NMeCab.Specialized;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NMeCab.Specialized;
 
 namespace Kawazu
 {
-    
+
     /// <summary>
     /// The main class of Kawazu library. Please call Dispose when finish using it or use the Using statement
     /// </summary>
-    public class KawazuConverter: IDisposable
+    public class KawazuConverter : IDisposable
     {
         private readonly MeCabIpaDicTagger _tagger;
 
@@ -19,7 +19,7 @@ namespace Kawazu
         {
             _tagger = MeCabIpaDicTagger.Create();
         }
-        
+
         public KawazuConverter(string dicdir)
         {
             _tagger = MeCabIpaDicTagger.Create(dicdir);
@@ -86,11 +86,11 @@ namespace Kawazu
         /// <returns>Convert result string</returns>
         public async Task<string> Convert(
             string str,
-            To to=To.Hiragana,
-            Mode mode=Mode.Normal,
-            RomajiSystem system=RomajiSystem.Hepburn,
-            string delimiterStart="(",
-            string delimiterEnd=")")
+            To to = To.Hiragana,
+            Mode mode = Mode.Normal,
+            RomajiSystem system = RomajiSystem.Hepburn,
+            string delimiterStart = "(",
+            string delimiterEnd = ")")
         {
             var result = await Task.Run(() =>
             {
@@ -312,7 +312,7 @@ namespace Kawazu
 
                 return builder.ToString();
             });
-            
+
             return result;
         }
     }

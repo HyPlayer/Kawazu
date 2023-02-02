@@ -1,8 +1,8 @@
-﻿using System;
+﻿using NMeCab.Specialized;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
-using NMeCab.Specialized;
+using System.Text;
 
 namespace Kawazu
 {
@@ -20,11 +20,11 @@ namespace Kawazu
                 {
                     builder.Append(element.Element);
                 }
-                
+
                 return builder.ToString();
             }
         }
-        
+
         public string HiraReading
         {
             get
@@ -64,7 +64,7 @@ namespace Kawazu
         public Division(MeCabIpaDicNode node, TextType type, RomajiSystem system = RomajiSystem.Hepburn)
         {
             IsEndsInTsu = node.Surface.Last() == 'っ' || node.Surface.Last() == 'ッ';
-            
+
             switch (type)
             {
                 case TextType.PureKana:
@@ -78,11 +78,11 @@ namespace Kawazu
                             Add(new JapaneseElement(node.Surface[i].ToString(), surface, surface, TextType.PureKana, system));
                         }
                     break;
-                
+
                 case TextType.PureKanji:
                     Add(new JapaneseElement(node.Surface, node.Reading, node.Pronounciation, TextType.PureKanji, system));
                     break;
-                
+
                 case TextType.KanjiKanaMixed:
                     var surfaceBuilder = new StringBuilder(node.Surface);
                     var readingBuilder = new StringBuilder(node.Reading);
@@ -95,7 +95,7 @@ namespace Kawazu
                         readingBuilder.Remove(0, 1);
                         pronunciationBuilder.Remove(0, 1);
                     }
-                    
+
                     while (Utilities.IsKana(surfaceBuilder[surfaceBuilder.Length - 1])) // Pop the kanas in the end.
                     {
                         kanasInTheEnd.Append(surfaceBuilder[surfaceBuilder.Length - 1].ToString());
@@ -108,11 +108,11 @@ namespace Kawazu
                     {
                         var previousIndex = -1;
                         var kanaIndex = 0;
-                        
+
                         var kanas = from ele in surfaceBuilder.ToString()
-                            where Utilities.IsKana(ele)  && ele != 'ヶ' && ele != 'ケ'
-                            select ele;
-                        
+                                    where Utilities.IsKana(ele) && ele != 'ヶ' && ele != 'ケ'
+                                    select ele;
+
                         var kanaList = kanas.ToList();
 
                         if (kanaList.Count == 0)
@@ -120,7 +120,7 @@ namespace Kawazu
                             Add(new JapaneseElement(surfaceBuilder.ToString(), readingBuilder.ToString(), pronunciationBuilder.ToString(), TextType.PureKanji, system));
                             break;
                         }
-                        
+
                         foreach (var ch in surfaceBuilder.ToString())
                         {
                             if (Utilities.IsKanji(ch))
@@ -161,11 +161,11 @@ namespace Kawazu
                         }
                     }
                     break;
-                
+
                 case TextType.Others:
                     Add(new JapaneseElement(node.Surface, node.Surface, node.Pronounciation, TextType.Others, system));
                     break;
-                
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
