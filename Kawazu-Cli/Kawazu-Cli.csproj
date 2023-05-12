@@ -7,8 +7,4 @@
         <TargetFrameworks>net5.0;netcoreapp3.1</TargetFrameworks>
     </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\Kawazu\Kawazu.csproj" />
-    </ItemGroup>
-
 </Project>
