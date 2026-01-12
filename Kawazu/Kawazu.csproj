@@ -7,6 +7,7 @@
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <IsAotCompatible>true</IsAotCompatible>
     <DisableRuntimeMarshalling>true</DisableRuntimeMarshalling>
+    <BaseOutputPath>bin\</BaseOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="LibNMeCab">
