@@ -9,7 +9,7 @@ namespace Kawazu
     /// <summary>
     /// The division from the word separator.
     /// </summary>
-    public class Division : List<JapaneseElement>
+    public partial class Division : List<JapaneseElement>
     {
         public string Surface
         {

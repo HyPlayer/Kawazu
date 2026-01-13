@@ -11,7 +11,7 @@ namespace Kawazu
     /// <summary>
     /// The main class of Kawazu library. Please call Dispose when finish using it or use the Using statement
     /// </summary>
-    public class KawazuConverter : IDisposable
+    public partial class KawazuConverter : IDisposable
     {
         private readonly MeCabIpaDicTagger _tagger;
 
