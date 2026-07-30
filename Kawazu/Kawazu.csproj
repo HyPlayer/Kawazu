@@ -9,6 +9,7 @@
     <DisableRuntimeMarshalling>true</DisableRuntimeMarshalling>
 	 <Platforms>ARM64;x64</Platforms>
 	 <Configurations>Debug;Release</Configurations>
+	 <WindowsSdkPackageVersion>10.0.26100.87</WindowsSdkPackageVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="LibNMeCab">
